@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialSphere 项目海报 V3 (Light)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#2563eb',    // 更深的蓝色用于浅色背景
+                        'brand-purple': '#7c3aed',  // 更深的紫色
+                        'brand-cyan': '#0891b2',    // 青色用于点缀
+                        'light-bg': '#f8fafc',      // 浅灰背景
+                        'card-white': 'rgba(255, 255, 255, 0.9)',
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    },
+                    fontFamily: {
+                        sans: ['"Microsoft YaHei"', 'Heiti SC', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 20px 40px -15px rgba(0, 0, 0, 0.1)',
+                        'glow': '0 0 20px rgba(37, 99, 235, 0.2)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* 浅色版自定义样式 */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .clip-slant {
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        /* 动态进度条动画 */
+        @keyframes loadWidth {
+            from { width: 0; }
+            to { width: var(--target-width); }
+        }
+        .progress-bar {
+            animation: loadWidth 1.5s ease-out forwards;
+        }
+
+        /* 网格背景微调 */
+        .grid-pattern {
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+    </style>
+</head>
+<body class="bg-light-bg text-slate-800 font-sans overflow-x-hidden">
+
+    <!-- HERO SECTION: 顶部大图视觉 -->
+    <header class="relative w-full h-[650px] flex items-center justify-center overflow-hidden clip-slant bg-white">
+        <!-- 装饰性渐变背景 -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 opacity-80"></div>
+        <div class="absolute inset-0 grid-pattern opacity-40"></div>
+        
+        <!-- 抽象图形装饰 -->
+        <div class="absolute top-20 right-20 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-20 left-20 w-80 h-80 bg-purple-400/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10">
+            <div class="inline-flex items-center gap-2 px-4 py-2 mb-6 border border-brand-blue/20 rounded-full bg-white/60 backdrop-blur-md shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-brand-blue animate-ping"></span>
+                <span class="text-brand-blue font-bold tracking-wide text-xs md:text-sm">2025 第三届全国人工智能应用场景创新挑战赛</span>
+            </div>
+            
+            <h1 class="text-6xl md:text-8xl font-black mb-4 tracking-tighter text-slate-900 drop-shadow-sm">
+                Social<span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-purple">Sphere</span>
+            </h1>
+            
+            <p class="text-2xl md:text-3xl font-light text-slate-600 mb-8 max-w-2xl mx-auto">
+                基于多智能体的<strong class="text-slate-800">社交网络模拟器</strong>
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4 text-sm font-semibold text-slate-600">
+                <span class="flex items-center px-5 py-2.5 bg-white rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-all">
+                    <i class="fas fa-microchip mr-2 text-brand-blue"></i> 场景驱动
+                </span>
+                <span class="flex items-center px-5 py-2.5 bg-white rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-all">
+                    <i class="fas fa-network-wired mr-2 text-brand-purple"></i> 数智强国
+                </span>
+                <span class="flex items-center px-5 py-2.5 bg-white rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-all">
+                    <i class="fas fa-university mr-2 text-brand-cyan"></i> 高校种子组
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- CORE TECH: 核心引擎 -->
+    <section class="max-w-6xl mx-auto px-6 py-16 -mt-20 relative z-20">
+        <div class="text-center mb-20">
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-3 text-slate-900">三大核心引擎</h2>
+            <div class="w-20 h-1.5 bg-gradient-to-r from-brand-blue to-brand-purple mx-auto rounded-full"></div>
+            <p class="text-slate-500 mt-3 uppercase tracking-widest text-sm">Technical Core Engines</p>
+        </div>
+
+        <!-- Tech 1 -->
+        <div class="flex flex-col md:flex-row items-center gap-12 mb-24 group">
+            <div class="w-full md:w-1/2 relative h-80 rounded-2xl overflow-hidden shadow-soft transition-transform duration-500 group-hover:-translate-y-2">
+                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop" 
+                     alt="AI Face Simulation" 
+                     class="w-full h-full object-cover">
+                <!-- 图片内遮罩保持深色以显示白色文字 -->
+                <div class="absolute bottom-0 left-0 p-8 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent w-full">
+                    <div class="text-brand-cyan font-mono text-xs mb-2 bg-slate-900/50 inline-block px-2 py-1 rounded">ENGINE 01</div>
+                    <h3 class="text-2xl font-bold text-white">用户精准仿真</h3>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2">
+                <h3 class="text-3xl font-bold mb-4 text-slate-800">个体认知自演化</h3>
+                <p class="text-slate-600 mb-8 leading-relaxed text-lg">
+                    基于思维链的大模型驱动，赋予每个智能体独立的画像、记忆与情感。不仅仅是数据，更是“活”的用户。
+                </p>
+                <!-- 数据可视化 (浅色版) -->
+                <div class="space-y-6">
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                        <div class="flex justify-between text-sm mb-2 font-semibold">
+                            <span class="text-slate-700">行为精度</span>
+                            <span class="text-brand-blue">95%</span>
+                        </div>
+                        <div class="h-2.5 bg-slate-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-brand-blue progress-bar shadow-glow" style="--target-width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                        <div class="flex justify-between text-sm mb-2 font-semibold">
+                            <span class="text-slate-700">演化耗时减少</span>
+                            <span class="text-brand-purple">70%</span>
+                        </div>
+                        <div class="h-2.5 bg-slate-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-brand-purple progress-bar shadow-glow" style="--target-width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tech 2 (Reversed) -->
+        <div class="flex flex-col md:flex-row-reverse items-center gap-12 mb-24 group">
+            <div class="w-full md:w-1/2 relative h-80 rounded-2xl overflow-hidden shadow-soft transition-transform duration-500 group-hover:-translate-y-2">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1000&auto=format&fit=crop" 
+                     alt="Crowd Interaction" 
+                     class="w-full h-full object-cover">
+                 <div class="absolute bottom-0 left-0 p-8 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent w-full">
+                    <div class="text-brand-purple font-mono text-xs mb-2 bg-slate-900/50 inline-block px-2 py-1 rounded">ENGINE 02</div>
+                    <h3 class="text-2xl font-bold text-white">社交群体交互</h3>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 md:text-right">
+                <h3 class="text-3xl font-bold mb-4 text-slate-800">千万级规模协同</h3>
+                <p class="text-slate-600 mb-8 leading-relaxed text-lg">
+                    自适应动态拓扑更新机制，支撑大规模、高复杂度的流量动态推演。让群体效应在沙盘中真实涌现。
+                </p>
+                <div class="flex justify-end gap-6">
+                    <div class="text-center px-6 py-4 bg-white rounded-2xl shadow-sm border border-slate-100">
+                        <div class="text-3xl font-black text-slate-800 mb-1">10<span class="text-sm font-normal text-slate-500">亿级</span></div>
+                        <div class="text-xs font-bold text-brand-purple uppercase tracking-wide">模拟复杂度</div>
+                    </div>
+                    <div class="text-center px-6 py-4 bg-white rounded-2xl shadow-sm border border-slate-100">
+                        <div class="text-3xl font-black text-slate-800 mb-1">1000<span class="text-sm font-normal text-slate-500">万+</span></div>
+                        <div class="text-xs font-bold text-brand-blue uppercase tracking-wide">模拟规模</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tech 3 -->
+        <div class="flex flex-col md:flex-row items-center gap-12 group">
+            <div class="w-full md:w-1/2 relative h-80 rounded-2xl overflow-hidden shadow-soft transition-transform duration-500 group-hover:-translate-y-2">
+                 <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" 
+                     alt="Data Traffic" 
+                     class="w-full h-full object-cover">
+                 <div class="absolute bottom-0 left-0 p-8 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent w-full">
+                    <div class="text-brand-cyan font-mono text-xs mb-2 bg-slate-900/50 inline-block px-2 py-1 rounded">ENGINE 03</div>
+                    <h3 class="text-2xl font-bold text-white">流量传播推演</h3>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2">
+                <h3 class="text-3xl font-bold mb-4 text-slate-800">虚实联动推演</h3>
+                <p class="text-slate-600 mb-8 leading-relaxed text-lg">
+                    真实社交网络与虚拟环境精准映射，通过历史策略特征建模，实现投放策略的智能推演。
+                </p>
+                <div class="glass-panel p-6 rounded-2xl flex items-center justify-between border-l-4 border-l-brand-cyan bg-white shadow-soft">
+                    <div>
+                        <div class="text-sm text-slate-500 font-semibold mb-1 uppercase tracking-wide">皮尔逊系数</div>
+                        <div class="text-xl font-bold text-slate-800">真实流量对齐</div>
+                    </div>
+                    <div class="text-5xl font-black text-brand-cyan">>0.8</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASES: 商业落地 -->
+    <section class="py-24 bg-white relative">
+        <div class="absolute inset-0 grid-pattern opacity-30"></div>
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-3 text-slate-900">商业落地应用</h2>
+                <div class="w-20 h-1.5 bg-slate-200 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Case 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+                    <div class="h-48 bg-slate-100 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop" alt="Social Media" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <div class="flex items-center gap-2 mb-1">
+                                <i class="fab fa-weibo text-xl text-red-500 bg-white rounded-full p-1"></i>
+                                <span class="font-bold opacity-90">微博平台</span>
+                            </div>
+                            <h4 class="text-xl font-bold">内容流行度预测</h4>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">精准捕捉互动趋势，实现“未发先火”。</p>
+                        <div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+                            <span class="text-xs font-bold text-slate-500">模拟速度提升</span>
+                            <span class="text-lg font-bold text-green-600">83.2% <i class="fas fa-arrow-up text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+                    <div class="h-48 bg-slate-100 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000&auto=format&fit=crop" alt="News Media" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <div class="flex items-center gap-2 mb-1">
+                                <i class="fas fa-newspaper text-xl text-blue-500 bg-white rounded-full p-1"></i>
+                                <span class="font-bold opacity-90">人民网</span>
+                            </div>
+                            <h4 class="text-xl font-bold">运营推广系统</h4>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">媒体宣传运行推广，长周期传播复现。</p>
+                         <div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+                            <span class="text-xs font-bold text-slate-500">模拟一致性</span>
+                            <span class="text-lg font-bold text-brand-blue">≥35% <i class="fas fa-check-circle text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+                    <div class="h-48 bg-slate-100 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=1000&auto=format&fit=crop" alt="E-commerce" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <div class="flex items-center gap-2 mb-1">
+                                <i class="fas fa-shopping-bag text-xl text-red-600 bg-white rounded-full p-1"></i>
+                                <span class="font-bold opacity-90">京东平台</span>
+                            </div>
+                            <h4 class="text-xl font-bold">新品市场测试</h4>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">接入2000万+真实用户，仿真市场环境。</p>
+                        <div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+                            <span class="text-xs font-bold text-slate-500">降本增效</span>
+                            <span class="text-lg font-bold text-amber-500">5亿+ <i class="fas fa-coins text-xs"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM & FOOTER: 底部信息 -->
+    <section class="py-16 px-6 max-w-5xl mx-auto">
+        <div class="bg-white rounded-3xl p-8 md:p-12 shadow-soft border border-slate-100 relative overflow-hidden">
+            <!-- 装饰背景 -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full filter blur-[60px] opacity-60"></div>
+
+            <div class="flex flex-col md:flex-row gap-12 items-center relative z-10">
+                <div class="w-full md:w-1/3">
+                    <h2 class="text-3xl font-bold mb-6 border-l-4 border-brand-blue pl-4 text-slate-900">顶尖团队</h2>
+                    <p class="text-slate-600 mb-6">
+                        国家重点实验室硕博团队，依托三项国家级大奖。
+                    </p>
+                    <div class="flex gap-2">
+                         <!-- 头像：带白色边框 -->
+                        <div class="w-12 h-12 rounded-full bg-slate-200 border-2 border-white shadow-md bg-[url('https://ui-avatars.com/api/?name=Zhang+Yongdong&background=2563eb&color=fff')] bg-cover"></div>
+                        <div class="w-12 h-12 rounded-full bg-slate-200 border-2 border-white shadow-md bg-[url('https://ui-avatars.com/api/?name=Liu+Wu&background=7c3aed&color=fff')] bg-cover"></div>
+                        <div class="w-12 h-12 rounded-full bg-slate-50 border-2 border-slate-200 flex items-center justify-center text-xs font-bold text-slate-400">+30</div>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-2/3 grid grid-cols-2 gap-4 text-sm">
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100">
+                        <div class="text-brand-blue font-bold mb-1 text-base">张勇东</div>
+                        <div class="text-xs text-slate-500 font-medium">IEEE Fellow / 国家杰青</div>
+                    </div>
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100">
+                        <div class="text-brand-purple font-bold mb-1 text-base">刘武</div>
+                        <div class="text-xs text-slate-500 font-medium">国家高层次人才</div>
+                    </div>
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 col-span-2">
+                        <div class="text-slate-800 font-bold mb-2">荣誉背书</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded text-xs text-slate-600 font-medium shadow-sm">国家自然科学二等奖</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded text-xs text-slate-600 font-medium shadow-sm">ACM中国新星奖</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded text-xs text-slate-600 font-medium shadow-sm">7项国际冠军</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-16 text-center border-t border-slate-200 pt-10">
+            <div class="flex justify-center gap-8 md:gap-16 mb-8 text-center">
+                <div>
+                    <div class="text-3xl font-black text-slate-800">1000万</div>
+                    <div class="text-xs font-bold text-slate-400 mt-1 uppercase tracking-wider">融资计划</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-black text-slate-800">1.89亿</div>
+                    <div class="text-xs font-bold text-slate-400 mt-1 uppercase tracking-wider">五年营收</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-black text-slate-800">27.2%</div>
+                    <div class="text-xs font-bold text-slate-400 mt-1 uppercase tracking-wider">平均利润率</div>
+                </div>
+            </div>
+            <p class="text-slate-400 text-xs font-medium">
+                &copy; 2026 SocialSphere Project. Powered by Chinese Association for Artificial Intelligence.
+            </p>
+        </footer>
+    </section>
+
+</body>
+</html>
