@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialSphere 项目海报 - 极客重制版</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tech-bg': '#0f172a',
+                        'tech-accent': '#10b981', // Emerald 500
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans SC', 'Inter', 'system-ui', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.3)',
+                        'neon': '0 0 10px rgba(16, 185, 129, 0.5)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+        
+        body {
+            background-color: #0f172a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px;
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+
+        /* === 海报容器 === */
+        #poster {
+            width: 900px;
+            height: 1300px; /* 稍微加长以容纳丰富内容 */
+            background-color: #f0fdf4; /* 极淡的绿色背景 */
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 100px rgba(0,0,0,0.5);
+            transform-origin: top center;
+        }
+        
+        @media (max-width: 980px) { #poster { transform: scale(0.8); margin-bottom: -240px; } }
+        @media (max-width: 768px) { #poster { transform: scale(0.5); margin-bottom: -600px; } }
+
+        /* 背景网格 */
+        .grid-bg {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(16, 185, 129, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+        }
+
+        /* 磨砂玻璃组件 */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .glass-panel:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #047857 0%, #10b981 50%, #34d399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .dark-gradient-text {
+            background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 装饰背景球 */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="poster" class="grid-bg flex flex-col p-10 text-slate-800">
+        
+        <div class="orb w-[600px] h-[600px] bg-emerald-200 top-[-200px] left-[-200px] mix-blend-multiply"></div>
+        <div class="orb w-[500px] h-[500px] bg-teal-200 top-[-100px] right-[-200px] mix-blend-multiply"></div>
+        <div class="orb w-[700px] h-[400px] bg-lime-100 bottom-[-100px] left-[100px] mix-blend-multiply opacity-60"></div>
+
+        <header class="relative z-10 text-center mb-8">
+            <div class="flex justify-between items-center mb-2">
+                <div class="flex items-center gap-2">
+                    <div class="bg-white/80 p-1.5 rounded-full shadow-sm">
+                        <i class="fas fa-university text-2xl text-blue-900"></i>
+                    </div>
+                    <span class="font-bold text-slate-700 tracking-wider text-sm">中国科学技术大学</span>
+                </div>
+                <div class="bg-emerald-100 px-3 py-1 rounded-full text-xs font-bold text-emerald-800 border border-emerald-200 flex items-center shadow-sm">
+                    <i class="fas fa-rocket mr-1.5"></i> 面向数字商业决策
+                </div>
+            </div>
+
+            <div class="mt-2 relative">
+                <h1 class="text-[5.5rem] font-black tracking-tighter leading-none mb-1 text-slate-900">
+                    Social<span class="gradient-text">Sphere</span>
+                </h1>
+                <div class="absolute top-0 right-10 rotate-12 bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded shadow-lg border border-yellow-200">
+                    AI Agent
+                </div>
+                <h2 class="text-3xl font-bold text-slate-600 tracking-widest mt-2 uppercase">
+                    基于多智能体的社交网络模拟器
+                </h2>
+                <div class="w-32 h-2 bg-gradient-to-r from-emerald-500 to-teal-400 mx-auto mt-4 rounded-full"></div>
+            </div>
+        </header>
+
+        <main class="flex-1 grid grid-cols-12 gap-6 relative z-10 min-h-0 pb-4">
+            
+            <div class="col-span-4 flex flex-col gap-5">
+                
+                <div class="glass-panel p-5 rounded-2xl border-l-4 border-l-slate-700">
+                    <h3 class="text-lg font-black text-slate-800 mb-3 flex items-center">
+                        <i class="fas fa-users-cog text-slate-600 mr-2"></i>核心团队
+                    </h3>
+                    
+                    <div class="space-y-3">
+                        <div class="bg-white/60 p-2.5 rounded-lg border border-slate-200 flex justify-between items-center">
+                            <div>
+                                <div class="text-[10px] text-slate-400 font-bold uppercase">项目负责人</div>
+                                <div class="font-bold text-slate-800 text-lg">孙艳辉</div>
+                            </div>
+                            <i class="fas fa-user-tie text-emerald-500 text-xl opacity-20"></i>
+                        </div>
+
+                        <div class="bg-white/60 p-2.5 rounded-lg border border-slate-200">
+                            <div class="text-[10px] text-slate-400 font-bold uppercase mb-1">指导老师</div>
+                            <div class="flex gap-2">
+                                <span class="bg-slate-800 text-white text-xs px-2 py-1 rounded font-bold">刘武</span>
+                                <span class="bg-slate-800 text-white text-xs px-2 py-1 rounded font-bold">张勇东</span>
+                            </div>
+                        </div>
+
+                        <div class="text-xs text-slate-500 leading-relaxed px-1">
+                            <span class="font-bold text-slate-700">团队成员：</span>
+                            姚涵涛、刘展鹏、周绚、马望博、王文涛、朱晨旭、杜宗翰
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex-1 flex flex-col">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 flex items-center">
+                        <div class="w-1.5 h-6 bg-red-500 mr-2 rounded-full"></div>
+                        行业痛点
+                        <span class="text-xs font-normal text-slate-400 ml-auto bg-white/50 px-2 rounded">Pain Points</span>
+                    </h3>
+                    
+                    <div class="flex-1 flex flex-col gap-3">
+                        <div class="glass-panel p-4 rounded-xl flex items-center gap-4 border-l-4 border-l-red-400">
+                            <div class="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center text-red-500 text-xl shadow-inner">
+                                <i class="fas fa-user-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-700">个体建模难</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">用户行为极度复杂，难以精准复刻</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-panel p-4 rounded-xl flex items-center gap-4 border-l-4 border-l-red-500">
+                            <div class="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center text-red-600 text-xl shadow-inner">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-700">群体推演难</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">多方博弈涌现，动态趋势难预测</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-panel p-4 rounded-xl flex items-center gap-4 border-l-4 border-l-red-600">
+                            <div class="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center text-red-700 text-xl shadow-inner">
+                                <i class="fas fa-bullhorn"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-700">传播复现难</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">信息茧房效应显著，路径不透明</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-8 flex flex-col gap-6">
+                
+                <div class="glass-panel p-6 rounded-2xl relative overflow-hidden border-t-4 border-t-emerald-500">
+                    <div class="absolute right-0 top-0 p-4 opacity-5 pointer-events-none">
+                        <i class="fas fa-globe-asia text-9xl"></i>
+                    </div>
+                    
+                    <h3 class="text-2xl font-black dark-gradient-text mb-4">
+                        洞察、模拟与重现商业生态
+                    </h3>
+                    
+                    <div class="flex gap-6 mb-4">
+                        <div class="flex-1 bg-emerald-50/50 rounded-lg p-3 border border-emerald-100">
+                            <div class="text-3xl font-black text-emerald-600 mb-1">50亿+</div>
+                            <div class="text-xs font-bold text-emerald-800 uppercase">全球社媒活跃用户</div>
+                        </div>
+                        <div class="flex-1 bg-teal-50/50 rounded-lg p-3 border border-teal-100">
+                            <div class="text-3xl font-black text-teal-600 mb-1">80%+</div>
+                            <div class="text-xs font-bold text-teal-800 uppercase">行业数字化转型</div>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-600 leading-relaxed font-medium">
+                        社交网络模拟器模拟全域互动流量的转化，为流量运营策略提供<br>
+                        <span class="bg-emerald-100 text-emerald-800 px-1 rounded font-bold mx-1">“先仿真、后上线”</span>的预演结果，大幅降低决策风险。
+                    </p>
+                </div>
+
+                <div class="flex-1 flex flex-col">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 flex items-center">
+                        <div class="w-1.5 h-6 bg-emerald-500 mr-2 rounded-full"></div>
+                        产品核心架构
+                        <span class="text-xs font-normal text-slate-400 ml-auto bg-white/50 px-2 rounded">Architecture</span>
+                    </h3>
+
+                    <div class="glass-panel p-1 rounded-xl flex-1 grid grid-cols-3 gap-1 shadow-sm">
+                        <div class="bg-gradient-to-br from-white to-emerald-50 p-4 rounded-lg border border-emerald-100 flex flex-col items-center text-center">
+                            <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-md mb-3 text-emerald-500 text-2xl">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-800 mb-1">个体层面</h4>
+                            <div class="text-[10px] text-emerald-600 font-bold mb-2">Cognitive Agent</div>
+                            <p class="text-xs text-slate-500">大模型驱动个体认知演化，还原真实思考。</p>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-white to-teal-50 p-4 rounded-lg border border-teal-100 flex flex-col items-center text-center relative z-10 scale-105 shadow-lg">
+                            <div class="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center shadow-md mb-3 text-teal-400 text-2xl">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-800 mb-1">群体层面</h4>
+                            <div class="text-[10px] text-teal-600 font-bold mb-2">Emergent Behavior</div>
+                            <p class="text-xs text-slate-500">多智能体协同，模拟群体行为涌现与交互。</p>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-white to-cyan-50 p-4 rounded-lg border border-cyan-100 flex flex-col items-center text-center">
+                            <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-md mb-3 text-cyan-500 text-2xl">
+                                <i class="fas fa-share-nodes"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-800 mb-1">传播层面</h4>
+                            <div class="text-[10px] text-cyan-600 font-bold mb-2">Traffic Mapping</div>
+                            <p class="text-xs text-slate-500">高保真映射流量传播过程，对齐真实网络。</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-span-12 mt-2">
+                <div class="flex items-center mb-4">
+                    <div class="w-1.5 h-6 bg-purple-500 mr-2 rounded-full"></div>
+                    <h3 class="text-xl font-bold text-slate-800">四大应用场景</h3>
+                    <div class="h-[1px] bg-slate-200 flex-1 ml-4"></div>
+                    <div class="text-xs font-bold text-purple-600 bg-purple-50 px-2 py-1 rounded ml-2">助力数字商业智能决策</div>
+                </div>
+
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="glass-panel p-4 rounded-xl border-t-4 border-t-red-500 group hover:bg-white transition-colors">
+                        <div class="flex justify-between items-start mb-3">
+                            <i class="fas fa-shield-virus text-3xl text-red-500 group-hover:scale-110 transition-transform"></i>
+                            <i class="fas fa-arrow-right text-slate-300 -rotate-45"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-800 text-lg">危机公关演练</h4>
+                        <p class="text-xs text-slate-500 mt-2">模拟负面舆情爆发路径，预演公关干预效果。</p>
+                    </div>
+
+                    <div class="glass-panel p-4 rounded-xl border-t-4 border-t-amber-500 group hover:bg-white transition-colors">
+                        <div class="flex justify-between items-start mb-3">
+                            <i class="fas fa-fire text-3xl text-amber-500 group-hover:scale-110 transition-transform"></i>
+                            <i class="fas fa-arrow-right text-slate-300 -rotate-45"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-800 text-lg">流量热点预测</h4>
+                        <p class="text-xs text-slate-500 mt-2">基于社交网络潜流，提前识别下一个爆款话题。</p>
+                    </div>
+
+                    <div class="glass-panel p-0 rounded-xl border-t-4 border-t-emerald-500 group overflow-hidden relative">
+                        <div class="absolute inset-0 bg-slate-800/10 z-0"></div>
+                        <div class="absolute right-0 bottom-0 w-24 h-24 bg-red-600 rounded-tl-full opacity-10"></div>
+                        
+                        <div class="p-4 relative z-10">
+                            <div class="flex justify-between items-start mb-3">
+                                <i class="fas fa-flask text-3xl text-emerald-600 group-hover:scale-110 transition-transform"></i>
+                                <span class="bg-red-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">西贝案例</span>
+                            </div>
+                            <h4 class="font-bold text-slate-800 text-lg">新品市场测试</h4>
+                            <p class="text-xs text-slate-500 mt-2">零成本试错，在虚拟环境中投放新品广告。</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel p-4 rounded-xl border-t-4 border-t-blue-500 group hover:bg-white transition-colors">
+                        <div class="flex justify-between items-start mb-3">
+                            <i class="fas fa-ad text-3xl text-blue-500 group-hover:scale-110 transition-transform"></i>
+                            <i class="fas fa-arrow-right text-slate-300 -rotate-45"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-800 text-lg">广告营销优化</h4>
+                        <p class="text-xs text-slate-500 mt-2">A/B Test 仿真化，最大化ROI回报率。</p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="mt-4 relative z-10">
+            <div class="bg-slate-800 rounded-xl p-4 flex items-center justify-between shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-500"></div>
+                <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/5 rounded-full blur-2xl"></div>
+
+                <div class="flex items-center gap-2 z-10">
+                    <span class="text-emerald-400 font-bold text-lg"><i class="fas fa-route"></i> 使用路径</span>
+                </div>
+
+                <div class="flex-1 flex justify-center items-center gap-4 z-10 mx-6">
+                    <div class="text-center">
+                        <div class="text-xs text-slate-400 mb-1">Step 1</div>
+                        <div class="text-white font-bold text-sm">仿真场景配置</div>
+                    </div>
+                    <i class="fas fa-chevron-right text-slate-600"></i>
+                    <div class="text-center">
+                        <div class="text-xs text-slate-400 mb-1">Step 2</div>
+                        <div class="text-white font-bold text-sm">群体行为演化</div>
+                    </div>
+                    <i class="fas fa-chevron-right text-slate-600"></i>
+                    <div class="text-center">
+                        <div class="text-xs text-slate-400 mb-1">Step 3</div>
+                        <div class="text-white font-bold text-sm">数字商业决策</div>
+                    </div>
+                    <i class="fas fa-chevron-right text-slate-600"></i>
+                    <div class="text-center">
+                        <div class="text-xs text-slate-400 mb-1">Step 4</div>
+                        <div class="text-emerald-400 font-bold text-sm">商业策略演练</div>
+                    </div>
+                </div>
+
+                <div class="z-10">
+                    <div class="bg-emerald-600 text-white text-xs font-bold px-4 py-2 rounded-lg shadow-lg">
+                        低风险上线执行 <i class="fas fa-check-circle ml-1"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4 text-slate-400 text-[10px] font-mono opacity-60">
+                &copy; 2026 SocialSphere Lab. All Rights Reserved.
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
