@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SocialSphere 项目海报 - 90x120版</title>
+    <title>SocialSphere 项目海报 - 高保真版</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script>
@@ -17,6 +17,9 @@
                     fontFamily: {
                         sans: ['Noto Sans SC', 'Inter', 'system-ui', 'sans-serif'],
                     },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+                    }
                 }
             }
         }
@@ -25,224 +28,287 @@
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
         
         body {
-            background-color: #334155; /* 深色背景以便突出海报 */
+            background-color: #1e293b; /* 浏览器背景深色，突出海报 */
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            padding: 20px;
+            padding: 40px;
+            font-family: 'Noto Sans SC', sans-serif;
         }
 
-        /* 海报核心容器：90:120 比例 */
-        #poster-container {
+        /* === 海报容器 900x1200 === */
+        #poster {
             width: 900px;
             height: 1200px;
             background-color: #f8fafc;
             position: relative;
-            overflow: hidden; /* 防止内容溢出 */
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            /* 屏幕适配缩放 (可选，防止屏幕太小看不全) */
+            overflow: hidden;
+            box-shadow: 0 0 100px rgba(0,0,0,0.5);
+            /* 响应式缩放，方便在小屏幕查看 */
             transform-origin: top center;
         }
+        
+        @media (max-width: 980px) { #poster { transform: scale(0.8); margin-bottom: -240px; } }
+        @media (max-width: 768px) { #poster { transform: scale(0.5); margin-bottom: -600px; } }
 
-        /* 自动缩放逻辑：如果在小屏幕上，自动缩小海报以适应 */
-        @media (max-width: 950px) {
-            #poster-container { transform: scale(0.8); margin-bottom: -200px; }
-        }
-        @media (max-width: 768px) {
-            #poster-container { transform: scale(0.5); margin-bottom: -600px; }
+        /* 背景网格 */
+        .grid-bg {
+            background-size: 50px 50px;
+            background-image: 
+                linear-gradient(to right, rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
         }
 
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        /* 高级磨砂玻璃 */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
         }
 
         .gradient-text {
-            background: linear-gradient(to right, #0284c7, #4f46e5, #9333ea);
+            background: linear-gradient(135deg, #0284c7 0%, #4f46e5 50%, #9333ea 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .grid-bg {
-            background-size: 40px 40px;
-            background-image: 
-                linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        /* 装饰背景球 */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.6;
         }
-
-        /* 呼吸动画 */
-        @keyframes blob {
-            0% { transform: translate(0px, 0px) scale(1); }
-            33% { transform: translate(30px, -50px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
-            100% { transform: translate(0px, 0px) scale(1); }
-        }
-        .animate-blob { animation: blob 7s infinite; }
-        .animation-delay-2000 { animation-delay: 2s; }
-        .animation-delay-4000 { animation-delay: 4s; }
     </style>
 </head>
 <body>
 
-    <div id="poster-container" class="grid-bg flex flex-col p-10 text-slate-800">
+    <div id="poster" class="grid-bg flex flex-col justify-between p-10 text-slate-800">
+        
+        <div class="orb w-[500px] h-[500px] bg-blue-300 top-[-100px] left-[-100px] mix-blend-multiply"></div>
+        <div class="orb w-[500px] h-[500px] bg-purple-300 top-[-100px] right-[-100px] mix-blend-multiply"></div>
+        <div class="orb w-[600px] h-[600px] bg-cyan-100 bottom-[-100px] left-[100px] mix-blend-multiply opacity-40"></div>
 
-        <div class="absolute top-0 left-0 w-80 h-80 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob pointer-events-none"></div>
-        <div class="absolute top-0 right-0 w-80 h-80 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000 pointer-events-none"></div>
-        <div class="absolute bottom-0 left-20 w-96 h-96 bg-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-4000 pointer-events-none"></div>
-
-        <header class="text-center mb-6 relative z-10 shrink-0">
-            <div class="inline-block px-3 py-1 mb-2 text-xs font-semibold tracking-wider text-blue-700 uppercase bg-blue-50 rounded-full border border-blue-200">
-                2025 第三届全国人工智能应用场景创新挑战赛
+        <header class="relative z-10 text-center mb-6">
+            <div class="flex justify-between items-start">
+                <div class="flex gap-2">
+                    <span class="bg-white/80 px-3 py-1 rounded-lg text-xs font-bold text-blue-700 border border-blue-100 shadow-sm">
+                        2025 AI应用场景创新挑战赛
+                    </span>
+                </div>
+                <div class="flex gap-2 text-xs font-medium text-slate-500">
+                    <span class="bg-white/50 px-2 py-1 rounded border border-slate-200"><i class="fas fa-university mr-1"></i>高校种子组</span>
+                    <span class="bg-white/50 px-2 py-1 rounded border border-slate-200"><i class="fas fa-map-marker-alt mr-1"></i>深圳</span>
+                </div>
             </div>
-            <h1 class="text-6xl font-black mb-1 tracking-tight text-slate-900 leading-tight">
-                Social<span class="gradient-text">Sphere</span>
-            </h1>
-            <h2 class="text-2xl font-bold text-slate-600 mb-2">
-                基于多智能体的社交网络模拟器
-            </h2>
-            <div class="flex justify-center gap-4 text-xs text-slate-500 font-medium">
-                <span class="bg-white/80 px-2 py-1 rounded shadow-sm border border-slate-100"><i class="fas fa-university mr-1 text-blue-500"></i>高校种子组</span>
-                <span class="bg-white/80 px-2 py-1 rounded shadow-sm border border-slate-100"><i class="fas fa-users mr-1 text-purple-500"></i>国家重点实验室</span>
-                <span class="bg-white/80 px-2 py-1 rounded shadow-sm border border-slate-100"><i class="fas fa-map-marker-alt mr-1 text-red-500"></i>中国 · 深圳</span>
+
+            <div class="mt-4">
+                <h1 class="text-7xl font-black tracking-tight text-slate-900 leading-none mb-2">
+                    Social<span class="gradient-text">Sphere</span>
+                </h1>
+                <h2 class="text-3xl font-bold text-slate-600 tracking-wide">
+                    基于多智能体的社交网络模拟器
+                </h2>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mt-6 rounded-full"></div>
+                <p class="mt-4 text-slate-500 text-lg italic">
+                    “场景驱动 · 数智强国” —— 连接商业假设与市场流量的全新推演沙盘
+                </p>
             </div>
         </header>
 
-        <main class="flex-1 flex flex-col justify-between relative z-10 gap-4">
-
-            <section>
-                <div class="flex items-center mb-3">
-                    <div class="w-1 h-6 bg-gradient-to-b from-cyan-500 to-blue-600 mr-3 rounded"></div>
+        <main class="flex-1 grid grid-cols-12 gap-6 relative z-10 min-h-0">
+            
+            <div class="col-span-5 flex flex-col gap-4 h-full">
+                <div class="flex items-center mb-1">
+                    <div class="w-1 h-6 bg-cyan-500 mr-3 rounded"></div>
                     <h3 class="text-xl font-bold text-slate-800">技术硬核亮点</h3>
                 </div>
-                <div class="grid grid-cols-3 gap-4">
-                    <div class="glass-effect p-4 rounded-xl border-t-4 border-t-cyan-500">
-                        <div class="text-cyan-600 text-2xl mb-2"><i class="fas fa-brain"></i></div>
-                        <h4 class="text-sm font-bold text-slate-800 leading-tight">用户仿真引擎</h4>
-                        <div class="mt-2 text-xs text-slate-600 space-y-1">
-                            <div class="flex items-center"><i class="fas fa-check text-cyan-500 text-[10px] mr-1"></i>精度 95%</div>
-                            <div class="flex items-center"><i class="fas fa-check text-cyan-500 text-[10px] mr-1"></i>耗时 -70%</div>
-                        </div>
-                    </div>
-                    <div class="glass-effect p-4 rounded-xl border-t-4 border-t-blue-500">
-                        <div class="text-blue-600 text-2xl mb-2"><i class="fas fa-project-diagram"></i></div>
-                        <h4 class="text-sm font-bold text-slate-800 leading-tight">群体交互引擎</h4>
-                        <div class="mt-2 text-xs text-slate-600 space-y-1">
-                            <div class="flex items-center"><i class="fas fa-check text-blue-500 text-[10px] mr-1"></i>千万级规模</div>
-                            <div class="flex items-center"><i class="fas fa-check text-blue-500 text-[10px] mr-1"></i>动态拓扑</div>
-                        </div>
-                    </div>
-                    <div class="glass-effect p-4 rounded-xl border-t-4 border-t-purple-500">
-                        <div class="text-purple-600 text-2xl mb-2"><i class="fas fa-wave-square"></i></div>
-                        <h4 class="text-sm font-bold text-slate-800 leading-tight">流量推演引擎</h4>
-                        <div class="mt-2 text-xs text-slate-600 space-y-1">
-                            <div class="flex items-center"><i class="fas fa-check text-purple-500 text-[10px] mr-1"></i>吻合度 >80%</div>
-                            <div class="flex items-center"><i class="fas fa-check text-purple-500 text-[10px] mr-1"></i>虚实联动</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            <section>
-                <div class="flex items-center mb-3">
-                    <div class="w-1 h-6 bg-gradient-to-b from-pink-500 to-rose-600 mr-3 rounded"></div>
-                    <h3 class="text-xl font-bold text-slate-800">商业应用案例</h3>
+                <div class="glass-panel p-5 rounded-2xl flex-1 flex flex-col justify-center border-l-4 border-l-cyan-500">
+                    <div class="flex justify-between items-center mb-3">
+                        <h4 class="text-xl font-bold text-slate-800">用户仿真引擎</h4>
+                        <i class="fas fa-brain text-3xl text-cyan-200"></i>
+                    </div>
+                    <p class="text-xs text-slate-400 font-bold uppercase tracking-wide mb-3">Multi-modal Cognitive Agent</p>
+                    <ul class="space-y-3 text-sm text-slate-700 font-medium">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-cyan-500 mr-2"></i>行为精度 <strong class="ml-1 text-cyan-700">95%</strong></li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-cyan-500 mr-2"></i>演化耗时 <strong class="ml-1 text-cyan-700">↓ 70%</strong></li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-cyan-500 mr-2"></i>思维链认知自演化</li>
+                    </ul>
                 </div>
-                <div class="grid grid-cols-3 gap-3">
-                    <div class="bg-white rounded-lg p-3 shadow-md border border-slate-100">
-                        <div class="flex items-center justify-between mb-2">
-                            <div class="text-red-600 text-xs font-bold"><i class="fab fa-weibo mr-1"></i>微博</div>
-                            <span class="text-[10px] font-bold text-red-500 bg-red-50 px-1 rounded">热度预测</span>
-                        </div>
-                        <div class="text-xs text-slate-500 mb-2 leading-tight">精准捕捉未发先火的互动趋势。</div>
-                        <div class="text-lg font-black text-slate-800">83.2% <span class="text-[10px] font-normal text-slate-400">提速</span></div>
-                    </div>
-                    <div class="bg-white rounded-lg p-3 shadow-md border border-slate-100">
-                        <div class="flex items-center justify-between mb-2">
-                            <div class="text-blue-600 text-xs font-bold"><i class="fas fa-globe mr-1"></i>人民网</div>
-                            <span class="text-[10px] font-bold text-blue-500 bg-blue-50 px-1 rounded">运营推广</span>
-                        </div>
-                        <div class="text-xs text-slate-500 mb-2 leading-tight">长周期传播复现与反事实推演。</div>
-                        <div class="text-lg font-black text-slate-800">≥35% <span class="text-[10px] font-normal text-slate-400">一致性</span></div>
-                    </div>
-                    <div class="bg-white rounded-lg p-3 shadow-md border border-slate-100">
-                        <div class="flex items-center justify-between mb-2">
-                            <div class="text-red-700 text-xs font-bold"><i class="fas fa-shopping-bag mr-1"></i>京东</div>
-                            <span class="text-[10px] font-bold text-red-700 bg-red-50 px-1 rounded">市场测试</span>
-                        </div>
-                        <div class="text-xs text-slate-500 mb-2 leading-tight">接入2000万+真实用户数据仿真。</div>
-                        <div class="text-lg font-black text-slate-800">5亿+ <span class="text-[10px] font-normal text-slate-400">降本</span></div>
-                    </div>
-                </div>
-            </section>
 
-            <section>
-                <div class="flex items-center mb-3">
-                    <div class="w-1 h-6 bg-gradient-to-b from-amber-400 to-orange-600 mr-3 rounded"></div>
-                    <h3 class="text-xl font-bold text-slate-800">顶尖科研团队</h3>
+                <div class="glass-panel p-5 rounded-2xl flex-1 flex flex-col justify-center border-l-4 border-l-blue-500">
+                    <div class="flex justify-between items-center mb-3">
+                        <h4 class="text-xl font-bold text-slate-800">社交交互引擎</h4>
+                        <i class="fas fa-project-diagram text-3xl text-blue-200"></i>
+                    </div>
+                    <p class="text-xs text-slate-400 font-bold uppercase tracking-wide mb-3">Group Interaction</p>
+                    <ul class="space-y-3 text-sm text-slate-700 font-medium">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>模拟规模 <strong class="ml-1 text-blue-700">千万级</strong></li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>复杂度 <strong class="ml-1 text-blue-700">十亿级</strong></li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>动态拓扑更新</li>
+                    </ul>
                 </div>
+
+                <div class="glass-panel p-5 rounded-2xl flex-1 flex flex-col justify-center border-l-4 border-l-purple-500">
+                    <div class="flex justify-between items-center mb-3">
+                        <h4 class="text-xl font-bold text-slate-800">流量推演引擎</h4>
+                        <i class="fas fa-wave-square text-3xl text-purple-200"></i>
+                    </div>
+                    <p class="text-xs text-slate-400 font-bold uppercase tracking-wide mb-3">Traffic Propagation</p>
+                    <ul class="space-y-3 text-sm text-slate-700 font-medium">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-purple-500 mr-2"></i>数据吻合度 <strong class="ml-1 text-purple-700">>80%</strong></li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-purple-500 mr-2"></i>流量对齐系数 <strong class="ml-1 text-purple-700">>0.8</strong></li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-purple-500 mr-2"></i>虚实联动智能推演</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-span-7 flex flex-col gap-6">
                 
-                <div class="glass-effect rounded-xl p-4 border-l-4 border-l-amber-400 flex flex-col gap-3">
-                    <div>
-                        <h4 class="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600 mb-1">
-                            国家重点实验室硕博团队
-                        </h4>
-                        <div class="flex gap-2 flex-wrap mb-2">
-                             <span class="px-2 py-0.5 bg-amber-50 border border-amber-100 rounded text-[10px] text-amber-700 font-bold">国家自然科学二等奖</span>
-                             <span class="px-2 py-0.5 bg-amber-50 border border-amber-100 rounded text-[10px] text-amber-700 font-bold">国家技术发明二等奖</span>
-                        </div>
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-1 h-6 bg-pink-500 mr-3 rounded"></div>
+                        <h3 class="text-xl font-bold text-slate-800">商业落地与应用</h3>
                     </div>
-
-                    <div class="flex justify-between items-center bg-white/50 p-3 rounded-lg border border-slate-100">
-                        <div class="flex gap-4">
-                            <div>
-                                <div class="text-[10px] text-slate-400 uppercase font-bold">首席科学家</div>
-                                <div class="font-bold text-slate-800">张勇东 <span class="text-[10px] font-normal text-amber-600">IEEE Fellow</span></div>
+                    
+                    <div class="flex flex-col gap-4">
+                        <div class="bg-white/80 rounded-xl p-4 shadow-sm border border-slate-100 flex items-center gap-4">
+                            <div class="w-16 h-16 rounded-lg bg-red-50 flex items-center justify-center flex-shrink-0 text-red-500 text-3xl">
+                                <i class="fab fa-weibo"></i>
                             </div>
-                            <div class="w-px h-8 bg-slate-200"></div>
-                            <div>
-                                <div class="text-[10px] text-slate-400 uppercase font-bold">指导老师</div>
-                                <div class="font-bold text-slate-800">刘武 <span class="text-[10px] font-normal text-amber-600">MIT TR35</span></div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center mb-1">
+                                    <h4 class="font-bold text-lg">微博 · 热度预测</h4>
+                                    <span class="text-red-600 font-black text-xl">提速 83.2%</span>
+                                </div>
+                                <p class="text-sm text-slate-500">“未发先火” —— 精准捕捉互动趋势，优化内容分发策略。</p>
                             </div>
                         </div>
-                        <div class="flex items-center">
-                            <div class="text-right mr-3">
-                                <div class="text-[10px] text-slate-400 uppercase font-bold">答辩人</div>
-                                <div class="font-bold text-slate-800">孙艳辉</div>
+
+                        <div class="bg-white/80 rounded-xl p-4 shadow-sm border border-slate-100 flex items-center gap-4">
+                            <div class="w-16 h-16 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0 text-blue-500 text-3xl">
+                                <i class="fas fa-newspaper"></i>
                             </div>
-                            <div class="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-xs font-bold text-white shadow-sm">S</div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center mb-1">
+                                    <h4 class="font-bold text-lg">人民网 · 运营推广</h4>
+                                    <span class="text-blue-600 font-black text-xl">一致性 ≥35%</span>
+                                </div>
+                                <p class="text-sm text-slate-500">长周期传播复现与反事实推演，辅助政策宣传制定。</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white/80 rounded-xl p-4 shadow-sm border border-slate-100 flex items-center gap-4">
+                            <div class="w-16 h-16 rounded-lg bg-red-50 flex items-center justify-center flex-shrink-0 text-red-700 text-3xl">
+                                <i class="fas fa-shopping-bag"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center mb-1">
+                                    <h4 class="font-bold text-lg">京东 · 市场测试</h4>
+                                    <span class="text-green-600 font-black text-xl">降本 5亿+</span>
+                                </div>
+                                <p class="text-sm text-slate-500">接入2000万+真实用户数据，进行新品市场投放仿真。</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
+
+                <div class="flex-1 flex flex-col">
+                     <div class="flex items-center mb-4">
+                        <div class="w-1 h-6 bg-amber-500 mr-3 rounded"></div>
+                        <h3 class="text-xl font-bold text-slate-800">顶尖科研团队</h3>
+                    </div>
+                    
+                    <div class="glass-panel p-6 rounded-2xl flex-1 border-t-4 border-t-amber-400 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+                            <i class="fas fa-users text-9xl"></i>
+                        </div>
+
+                        <div class="relative z-10">
+                            <h4 class="text-xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600">
+                                国家重点实验室硕博团队
+                            </h4>
+                            <p class="text-slate-600 text-sm mb-5 leading-relaxed">
+                                依托三项国家级大奖，建立了从底层计算、数据感知到传播认知的完整技术闭环。
+                            </p>
+
+                            <div class="grid grid-cols-2 gap-6">
+                                <div class="space-y-3">
+                                    <div class="bg-white/60 p-3 rounded-lg border border-slate-200">
+                                        <div class="text-[10px] text-slate-400 uppercase font-bold">首席科学家</div>
+                                        <div class="flex items-baseline gap-2">
+                                            <span class="font-bold text-slate-800 text-lg">张勇东</span>
+                                            <span class="text-xs text-amber-600 font-bold bg-amber-50 px-1 rounded">IEEE Fellow</span>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white/60 p-3 rounded-lg border border-slate-200">
+                                        <div class="text-[10px] text-slate-400 uppercase font-bold">指导老师</div>
+                                        <div class="flex items-baseline gap-2">
+                                            <span class="font-bold text-slate-800 text-lg">刘武</span>
+                                            <span class="text-xs text-amber-600 font-bold bg-amber-50 px-1 rounded">MIT TR35</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="bg-white/60 p-3 rounded-lg border border-slate-200 h-full">
+                                        <div class="text-[10px] text-slate-400 uppercase font-bold mb-2">核心成员</div>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-center">
+                                                <span class="w-6 h-6 rounded-full bg-slate-800 text-white flex items-center justify-center text-xs mr-2">S</span>
+                                                <span class="text-sm font-bold text-slate-800">孙艳辉</span>
+                                                <span class="ml-auto text-xs bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded">答辩人</span>
+                                            </li>
+                                            <li class="flex items-center text-sm text-slate-600">
+                                                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-500 flex items-center justify-center text-xs mr-2">L</span>
+                                                刘展鹏
+                                            </li>
+                                            <li class="flex items-center text-sm text-slate-600">
+                                                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-500 flex items-center justify-center text-xs mr-2">Z</span>
+                                                周绚
+                                            </li>
+                                            <li class="text-xs text-slate-400 mt-2 pt-2 border-t border-slate-200">
+                                                + 10名博士 / 20名硕士
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
 
-        <footer class="mt-6 pt-6 border-t border-slate-300 text-center shrink-0">
-            <div class="grid grid-cols-4 gap-2 mb-4">
+        <footer class="mt-8 pt-6 border-t border-slate-300 relative z-10">
+            <div class="grid grid-cols-4 gap-8 mb-4 text-center divide-x divide-slate-200">
                 <div>
-                    <div class="text-2xl font-black text-slate-800">50亿+</div>
-                    <div class="text-[10px] text-slate-500 uppercase tracking-wider">用户规模</div>
+                    <div class="text-4xl font-black text-slate-800 mb-1">50亿+</div>
+                    <div class="text-xs text-slate-500 uppercase font-semibold tracking-widest">全球社交媒体用户</div>
                 </div>
                 <div>
-                     <div class="text-2xl font-black text-slate-800">1000万</div>
-                    <div class="text-[10px] text-slate-500 uppercase tracking-wider">融资计划</div>
+                     <div class="text-4xl font-black text-slate-800 mb-1">1000万</div>
+                    <div class="text-xs text-slate-500 uppercase font-semibold tracking-widest">融资计划 (10%)</div>
                 </div>
                 <div>
-                     <div class="text-2xl font-black text-slate-800">27.2%</div>
-                    <div class="text-[10px] text-slate-500 uppercase tracking-wider">利润率</div>
+                     <div class="text-4xl font-black text-slate-800 mb-1">27.2%</div>
+                    <div class="text-xs text-slate-500 uppercase font-semibold tracking-widest">五年平均利润率</div>
                 </div>
                 <div>
-                     <div class="text-2xl font-black text-slate-800">1.89亿</div>
-                    <div class="text-[10px] text-slate-500 uppercase tracking-wider">预计营收</div>
+                     <div class="text-4xl font-black text-slate-800 mb-1">1.89亿</div>
+                    <div class="text-xs text-slate-500 uppercase font-semibold tracking-widest">五年预计营收</div>
                 </div>
             </div>
             
-            <p class="text-slate-400 text-xs">
-                &copy; 2026 SocialSphere Project Team.
-            </p>
+            <div class="flex justify-between items-center mt-6 text-slate-400 text-xs font-mono border-t border-slate-200 pt-4">
+                <span>&copy; 2026 SocialSphere Project Team.</span>
+                <span>DESIGNED FOR 3RD AI CHALLENGE</span>
+            </div>
         </footer>
 
     </div>
