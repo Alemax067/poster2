@@ -1,0 +1,10 @@
+# HTML 海报导出工具依赖
+
+# Gradio - Web UI 框架
+gradio>=4.0.0
+
+# Playwright - 无头浏览器，用于渲染 HTML
+playwright>=1.40.0
+
+# Pillow - 图片处理
+Pillow>=10.0.0
