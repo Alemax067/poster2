@@ -8,6 +8,14 @@ HTML 海报导出工具 - Gradio 版
 2. 上传 ZIP 文件（包含 HTML 和资源文件）
 """
 
+import sys
+import io
+
+# Windows 下设置 stdout 为 UTF-8 编码，避免 emoji 输出报错
+if sys.platform == 'win32':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace', line_buffering=True)
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace', line_buffering=True)
+
 import gradio as gr
 import asyncio
 import tempfile
@@ -471,11 +479,6 @@ custom_css = """
 
 with gr.Blocks(
     title="HTML 海报导出工具",
-    css=custom_css,
-    theme=gr.themes.Soft(
-        primary_hue="indigo",
-        secondary_hue="blue",
-    )
 ) as app:
     
     gr.HTML("""
@@ -510,11 +513,11 @@ with gr.Blocks(
                             lines=1,
                             scale=4,
                         )
-                        browse_btn = gr.Button("📁 浏览...", size="lg", scale=1)
+                        browse_btn = gr.Button("① 浏览", size="lg", scale=1)
                     
                     with gr.Row():
-                        local_preview_btn = gr.Button("👁️ 预览", variant="secondary", size="lg")
-                        local_export_btn = gr.Button("📥 导出", variant="primary", size="lg")
+                        local_preview_btn = gr.Button("② 预览", variant="secondary", size="lg")
+                        local_export_btn = gr.Button("③ 导出", variant="primary", size="lg")
                 
                 # Tab 2: ZIP 上传模式
                 with gr.Tab("📦 上传 ZIP", id="zip"):
@@ -529,8 +532,8 @@ with gr.Blocks(
                     )
                     
                     with gr.Row():
-                        zip_preview_btn = gr.Button("👁️ 预览", variant="secondary", size="lg")
-                        zip_export_btn = gr.Button("📥 导出", variant="primary", size="lg")
+                        zip_preview_btn = gr.Button("② 预览", variant="secondary", size="lg")
+                        zip_export_btn = gr.Button("③ 导出", variant="primary", size="lg")
             
             gr.Markdown("### ⚙️ 导出设置")
             
@@ -544,7 +547,7 @@ with gr.Blocks(
             status_text = gr.Textbox(
                 label="状态",
                 interactive=False,
-                lines=6,
+                lines=2,
                 value="⏳ 等待操作...",
             )
             
@@ -558,21 +561,13 @@ with gr.Blocks(
             ### 📖 使用说明
             
             **方式一：选择本地文件（推荐）**
-            1. 点击 **📁 浏览** 按钮
-            2. 在弹出的对话框中选择 HTML 文件
-            3. 点击「预览」或「导出」
+            1. 点击 **① 浏览** 选择 HTML 文件
+            2. 点击 **② 预览** 查看效果
+            3. 点击 **③ 导出** 生成高清图片
             
             **方式二：上传 ZIP 包**
             - 将 HTML 和图片资源打包成 ZIP
             - 适合分享给他人使用
-            
-            **PPI 说明**
-            | PPI | 用途 | 速度 |
-            |-----|------|------|
-            | 72 | 屏幕预览 | 快 |
-            | 150 | 普通打印 | 中 |
-            | 300 | 高清印刷 | 中 |
-            | 600 | 超清印刷 | 慢 |
             """)
         
         # 右侧：预览区域
@@ -582,8 +577,7 @@ with gr.Blocks(
             preview_image = gr.Image(
                 label="海报预览",
                 type="filepath",
-                height=750,
-                show_download_button=True,
+                height=800,
             )
     
     # ===== 事件绑定 =====
@@ -661,6 +655,11 @@ def main():
         server_port=7860,
         share=False,
         inbrowser=True,
+        css=custom_css,
+        theme=gr.themes.Soft(
+            primary_hue="indigo",
+            secondary_hue="blue",
+        ),
     )
 
 
