@@ -84,8 +84,29 @@
             z-index: 0;
             opacity: 0.6;
         }
+        .mt-5 {
+            line-height: 1.6;
+            letter-spacing: 0.03em;
+            margin-bottom: 2rem;
+            }
+        .mt-5 h1 {
+        line-height: 1.1;
+        letter-spacing: 0.02em;
+        }
+        .mt-5 h2 {
+        line-height: 1.1;
+        letter-spacing: 0.015em;
+        }
+        .mt-5 p {
+        line-height: 1.1;
+        letter-spacing: 0.015em;
+        margin-top: 1rem;
+        }
+
     </style>
 </head>
+
+
 <body>
 
     <div id="poster" class="grid-bg flex flex-col justify-between p-10 text-slate-800">
@@ -94,7 +115,7 @@
         <div class="orb w-[500px] h-[500px] bg-purple-300 top-[-100px] right-[-100px] mix-blend-multiply"></div>
         <div class="orb w-[600px] h-[600px] bg-cyan-100 bottom-[-100px] left-[100px] mix-blend-multiply opacity-40"></div>
 
-        <header class="relative z-10 text-center mb-6">
+        <header class="relative z-10 text-center mb-1">
             <div class="flex justify-between items-start">
                 <div class="flex gap-2">
                     <span class="bg-white/80 px-3 py-1 rounded-lg text-xs font-bold text-blue-700 border border-blue-100 shadow-sm">
@@ -110,7 +131,7 @@
                 </div>
             </div>
 
-            <div class="mt-0.1">
+            <div class="mt-5">
                 <h1 class="text-6xl font-black tracking-tight text-slate-900 leading-none mb-2">
                     Social<span class="gradient-text">Sphere</span>
                 </h1>
@@ -118,18 +139,16 @@
                     基于多智能体的社交网络模拟器
                 </h2>
                 <div class="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mt-3 rounded-full"></div>
-                <p class="mt-1 text-slate-500 text-lg italic">
-                    “场景驱动 · 数智强国” —— 连接商业假设与市场流量的全新推演沙盘
-                </p>
+                
             </div>
         </header>
 
         <main class="flex-1 grid grid-cols-12 gap-6 relative z-10 min-h-0">
             
-            <div class="col-span-5 flex flex-col h-full gap-4">
+            <div class="col-span-5 flex flex-col h-full gap-3">
                 <div class="flex items-center">
                     <div class="w-1 h-6 bg-cyan-500 mr-3 rounded"></div>
-                    <h3 class="text-xl font-bold text-slate-800">技术引擎 & 竞品对标</h3>
+                    <h3 class="text-xl font-bold text-slate-800">技术亮点</h3>
                 </div>
 
                 <div class="grid grid-cols-1 gap-3">
@@ -171,10 +190,16 @@
                         </span>
                     </div>
 
+                    <div class="flex justify-center gap-4 mb-3">
+                        <!-- 两张图片示例 -->
+                        <img src="pic/patent.png" alt="图片1" class="h-21 w-auto rounded" />
+                        <!-- <img src="pic/test_report.png" alt="图片2" class="h-16 w-auto rounded" /> -->
+                    </div>
+
                     <div class="flex-1 flex flex-col justify-center space-y-1 relative z-10">
                         <div class="grid grid-cols-[1fr_1.2fr_1.5fr] text-xs text-slate-400 mb-2 font-mono uppercase tracking-wider">
-                            <div>维度</div>
-                            <div>业内顶尖</div>
+                            <div class="font-bold">维度</div>
+                            <div class="font-bold">业内顶尖</div>
                             <div class="text-emerald-600 font-black">SocialSphere</div>
                         </div>
 
@@ -212,7 +237,7 @@
 
                         <div class="vs-row grid grid-cols-[1fr_1.2fr_1.5fr] py-2">
                             <div class="text-sm font-medium text-slate-500">调控工具</div>
-                            <div class="text-sm text-slate-400">-</div>
+                            <div class="text-sm text-slate-400 ml-4">---</div>
                             <div class="text-sm font-bold text-red-600 bg-red-50 border border-red-100 px-2 py-1 rounded inline-block w-max">
                                 填补空白
                             </div>
@@ -222,10 +247,10 @@
                 </div>
             </div>
 
-            <div class="col-span-7 flex flex-col gap-6">
+            <div class="col-span-7 flex flex-col gap-8">
                 
 
-                <div class="flex-1 flex flex-col">
+                <div class="flex flex-col">
                      <div class="flex items-center mb-4">
                         <div class="w-1 h-6 bg-amber-500 mr-3 rounded"></div>
                         <h3 class="text-xl font-bold text-slate-800">顶尖科研团队</h3>
@@ -241,19 +266,12 @@
                                 国家重点实验室硕博团队
                             </h4>
                             <p class="text-slate-600 text-sm mb-5 leading-relaxed">
-                                依托三项国家级大奖，建立从底层计算、<br>数据感知到传播认知的完整技术闭环。
+                                建立从底层计算、数据感知到传播认知的完整技术闭环
                             </p>
 
-                            <div class="grid grid-cols-10 gap-6">
-                                <div class="space-y-3 col-span-6">
-                                    <!-- <div class="bg-white/60 p-3 pl-11 rounded-lg border border-slate-200 w-56 h-20">
-                                        <div class="text-[10px] text-slate-400 uppercase font-bold pl-8 mt-1.5">首席科学家</div>
-                                        <div class="text-right">
-                                            <span class="font-bold text-slate-800 text-lg">张勇东</span>
-                                            <span class="text-xs text-amber-600 font-bold bg-amber-50 px-1 rounded ml-1">IEEE Fellow</span>
-                                        </div>
-                                    </div> -->
-                                    <div class="bg-white/60 p-3 rounded-lg border border-slate-200 w-51 h-20 flex items-center gap-4">
+                            <div class="grid grid-cols-10 gap-2">
+                                <div class="flex flex-col justify-between col-span-6 h-full">
+                                    <div class="bg-white/60 p-3 rounded-lg border border-slate-200 w-51 h-25 flex items-center gap-4 mb-1">
                                         <!-- 左侧大图 -->
                                         <img src="pic/Yongdong_Zhang.png" alt="头像" class="w-16 h-16 rounded" />
                                       
@@ -262,18 +280,11 @@
                                           <div class="text-[10px] text-slate-400 uppercase font-bold pl-0 mt-1.2">首席科学家</div>
                                           <div class="flex flex-col mt-1">
                                             <span class="font-bold text-slate-800 text-lg">张勇东</span>
-                                            <span class="text-xs text-amber-600 font-bold bg-amber-50 px-1 rounded mt-0.5 w-max">IEEE Fellow</span>
+                                            <span class="text-xs text-amber-600 font-bold bg-amber-50 px-1 rounded mt-0.5 w-max">IEEE Fellow, 国家杰青, <br>两项国家奖第一完成人</span>
                                           </div>
                                         </div>
                                     </div>
-                                    <!-- <div class="bg-white/60 p-3 pl-11 rounded-lg border border-slate-200 w-56 h-20">
-                                        <div class="text-[10px] text-slate-400 uppercase font-bold pl-8 mt-1.5">指导老师</div>
-                                        <div class="pl-8">
-                                            <span class="font-bold text-slate-800 text-lg ">刘武</span>
-                                            <span class="text-xs text-amber-600 font-bold bg-amber-50 px-1 rounded ml-1">MIT TR35</span>
-                                        </div>
-                                    </div> -->
-                                    <div class="bg-white/60 p-3 rounded-lg border border-slate-200 w-51 h-20 flex items-center gap-4">
+                                    <div class="bg-white/60 p-3 rounded-lg border border-slate-200 w-51 h-20 flex items-center gap-4 ">
                                         <!-- 左侧大图 -->
                                         <img src="pic/Wu_Liu.png" alt="指导老师头像" class="w-16 h-16 rounded" />
                                       
@@ -286,7 +297,7 @@
                                             刘武
                                           </div>
                                           <div class="text-xs text-amber-600 font-bold bg-amber-50 px-1 rounded mt-0.5 w-max">
-                                            MIT TR35
+                                            国家青拔, MIT亚太区TR35
                                           </div>
                                         </div>
                                     </div>
@@ -297,20 +308,24 @@
                                         <div class="text-[10px] text-slate-400 uppercase font-bold mb-2">核心成员</div>
                                         <ul class="space-y-2">
                                             <li class="flex items-center">
-                                                <span class="w-6 h-6 rounded-full bg-slate-800 text-white flex items-center justify-center text-xs mr-2">S</span>
+                                                <!-- <span class="w-6 h-6 rounded-full bg-slate-800 text-white flex items-center justify-center text-xs mr-2">S</span> -->
+                                                <img src="pic/Yanhui_Sun.jpg" class="w-9 h-9 rounded-full mr-2" />
                                                 <span class="text-sm font-bold text-slate-800">孙艳辉</span>
+                                                <span class="text-xs text-amber-600 font-bold bg-amber-50 px-1 rounded mt-0.5 w-max ml-1">
+                                                    负责人
+                                                </span>
                                                 <!-- <span class="ml-auto text-xs bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded">答辩人</span> -->
                                             </li>
                                             <li class="flex items-center text-sm text-slate-600">
-                                                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-500 flex items-center justify-center text-xs mr-2">L</span>
-                                                刘展鹏
+                                                <img src="pic/Zhanpeng_Liu.jpg" class="w-9 h-9 rounded-full mr-2 object-cover" />
+                                                <span class="text-sm font-bold text-slate-800">刘展鹏</span>
                                             </li>
                                             <li class="flex items-center text-sm text-slate-600">
-                                                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-500 flex items-center justify-center text-xs mr-2">Z</span>
-                                                周绚
+                                                <img src="pic/Xuan_Zhou.jpg" class="w-9 h-9 rounded-full mr-2 object-cover" />
+                                                <span class="text-sm font-bold text-slate-800">周绚</span>
                                             </li>
                                             <li class="text-xs text-slate-400 mt-2 pt-2 border-t border-slate-200">
-                                                + 10名博士 / 20名硕士
+                                                +10名博士, 20名硕士
                                             </li>
                                         </ul>
                                     </div>
@@ -336,7 +351,7 @@
                                     <h4 class="font-bold text-lg">微博 · 热度预测</h4>
                                     <span class="text-red-600 font-black text-xl">提速 83.2%</span>
                                 </div>
-                                <p class="text-sm text-slate-500">“未发先火” —— 精准捕捉互动趋势，优化内容分发策略。</p>
+                                <p class="text-sm text-slate-500">“未发先火”，精准捕捉互动趋势，优化内容分发策略。</p>
                             </div>
                         </div>
 
@@ -368,11 +383,16 @@
                     </div>
                 </div>
             </div>
+            
+            
+            <div class="col-span-12">
+                <p class="text-slate-500 text-center text-sm">“场景驱动 · 数智赋能” —— 连接商业假设与市场流量的全新推演沙盘 </p>
+            </div>
         </main>
 
-        <footer class="mt-5 pt-6 border-t border-slate-300 relative z-10">
+        <footer class="mt-8 pt-6 border-slate-300 relative z-10">
             
-            <div class="flex justify-center items-center mt-6 text-slate-400 text-xs font-mono border-t border-slate-200 pt-4">
+            <div class="flex justify-center items-center mt-6 text-slate-400 text-xs font-mono border-slate-200 pt-4">
                 <span>&copy; 2026 SocialSphere Project Team.</span>
                 
             </div>
