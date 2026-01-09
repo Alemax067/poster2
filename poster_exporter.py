@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 HTML 海报导出工具 - Gradio 版
-支持上传 HTML 文件（含本地图片资源）预览，选择 PPI 并导出为高分辨率 PNG 图片
+支持上传 HTML 文件（含本地图片资源）预览，选择 PPI 并导出为高分辨率 JPG 图片
 
 两种输入方式：
 1. 通过文件选择器选择本地 HTML 文件（推荐，支持相对路径图片资源）
@@ -254,12 +254,14 @@ async def render_html_file_to_image(
         
         if poster_element:
             screenshot_bytes = await poster_element.screenshot(
-                type="png",
+                type="jpeg",
+                quality=95,
                 omit_background=False,
             )
         else:
             screenshot_bytes = await page.screenshot(
-                type="png",
+                type="jpeg",
+                quality=95,
                 full_page=False,
             )
         
@@ -323,7 +325,7 @@ def process_local_path(local_path: str, ppi_choice: str):
         # 保存输出
         output_filename = Path(local_path).stem
         with tempfile.NamedTemporaryFile(
-            suffix=f"_{output_filename}_{ppi}PPI.png", 
+            suffix=f"_{output_filename}_{ppi}PPI.jpg", 
             delete=False
         ) as tmp_file:
             tmp_file.write(image_bytes)
@@ -365,7 +367,7 @@ def preview_local_path(local_path: str):
         print(f"👁️ 预览本地文件: {local_path}")
         image_bytes = sync_render_html_file_to_image(local_path, ppi=72)
         
-        with tempfile.NamedTemporaryFile(suffix="_preview.png", delete=False) as tmp_file:
+        with tempfile.NamedTemporaryFile(suffix="_preview.jpg", delete=False) as tmp_file:
             tmp_file.write(image_bytes)
             preview_path = tmp_file.name
         
@@ -398,7 +400,7 @@ def process_zip_upload(file_obj, ppi_choice: str):
         
         # 保存输出
         with tempfile.NamedTemporaryFile(
-            suffix=f"_export_{ppi}PPI.png", 
+            suffix=f"_export_{ppi}PPI.jpg", 
             delete=False
         ) as tmp_file:
             tmp_file.write(image_bytes)
@@ -445,7 +447,7 @@ def preview_zip_upload(file_obj):
         temp_dir, html_file_path = extract_zip_to_temp(file_path)
         image_bytes = sync_render_html_file_to_image(html_file_path, ppi=72)
         
-        with tempfile.NamedTemporaryFile(suffix="_preview.png", delete=False) as tmp_file:
+        with tempfile.NamedTemporaryFile(suffix="_preview.jpg", delete=False) as tmp_file:
             tmp_file.write(image_bytes)
             preview_path = tmp_file.name
         
